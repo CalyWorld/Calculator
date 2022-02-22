@@ -1,0 +1,34 @@
+*{
+    box-sizing:border-box;
+    border:1px solid red;
+  }
+  
+  body{
+    display:flex;
+    height:50vh;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  #container{
+    height:40vh;
+    width:40vh;
+    padding:10px;
+  }
+  #display{
+    display:flex;
+    justify-content:end;
+    height:8vh;
+    padding-top:20px;
+    padding-right:10px;
+  }
+  
+  #button-container{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows:1fr 1fr;
+  }
+  .item-zero{
+    grid-column-start:span 2;
+  }
+  
