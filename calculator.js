@@ -1,8 +1,13 @@
 const number = document.querySelectorAll('.itemNumber');
-const display = document.querySelector('#display');
+const display = document.querySelector('.displayResult');
 const operators = document.querySelectorAll('.itemOperator');
 const equal = document.querySelector('.equal');
 const clear = document.querySelector('.itemClear');
+const percentage = document.querySelector('.percentage');
+const plusEqual = document.querySelector('.plusEqual');
+const dot = document.querySelector('.dot');
+
+
 let currentNumber = "";
 let displayValue = "";
 let operatorName = "";
@@ -19,6 +24,14 @@ function add(num1, num2){
   function divide(num1, num2){
     return num1 / num2;
   }
+  // function percentage(num1, num2){
+     
+  //     num1 = 100;
+  //     return num1/num1;
+  // }
+  // function plusMinus(num1, num2){
+  //   return -num2 
+  // }
 
   function operate(operator, num1, num2){
     switch(operator){
@@ -31,9 +44,13 @@ function add(num1, num2){
       case '*':
         display.textContent =  multiply(num1, num2);
        break;
-      case '/':
+      case '÷':
         display.textContent = divide(num1, num2);
         break;
+
+        // default:
+        //         console.log('invalid operator');
+        //   break;
     }
     currentNumber = display.textContent;   //stores calculated value
     operatorName = ""; //operator variable is cleared for next operation
@@ -87,7 +104,7 @@ function add(num1, num2){
               displayValue = "";
             }
             //operator.textContent clicked is stored in variable operatorName
-            operatorName = e.currentTarget.textContent;
+            operatorName += e.currentTarget.textContent;
           
     });
   });
@@ -108,3 +125,39 @@ function add(num1, num2){
         currentNumber = ""; //restes currentNUmber
       });
     
+
+      percentage.addEventListener('click', ()=>{
+          if(displayValue){
+              displayValue = Number(displayValue/100);
+              display.textContent = displayValue;
+          }else{
+            currentNumber = Number(currentNumber/100);
+            display.textContent = currentNumber;
+          }
+      });
+
+      plusEqual.addEventListener('click', ()=>{
+        //if displayValue
+        if(displayValue){
+          displayValue = Number(displayValue)*-1;
+          display.textContent = displayValue;
+          //else currentNumber
+         }else{
+          currentNumber = Number(currentNumber)*-1;
+          display.textContent = currentNumber;
+         }
+      });
+
+      dot.addEventListener('click', ()=>{
+        if (displayValue.toString().indexOf('.') === -1) {
+          //if there is no displayValue, add dot
+          if (!displayValue){
+              displayValue = ".";
+          //else if there is add it to displayValue
+          } else {
+              displayValue += ".";
+          }
+          //add displayValue to display
+          display.textContent = displayValue;
+      }
+      });
