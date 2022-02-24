@@ -35,7 +35,7 @@
   .displayResult{
     position: absolute;
     bottom:0;
-    right:5px;
+    right:10px;
     font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
     font-size: 20px;
   }
