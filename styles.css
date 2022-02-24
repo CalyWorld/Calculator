@@ -58,6 +58,7 @@ button{
   -webkit-user-select: none;
   touch-action: manipulation;
   /* color: green; */
+  padding:10px;
 }
 
 button:hover {
